@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const userRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use("/api/user", userRoute);
+app.use("/api/auth", authRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`listening on port ${process.env.PORT}`);
